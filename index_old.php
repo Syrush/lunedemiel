@@ -33,7 +33,13 @@
             <span class="link-text">269 photos</span>
         </div>
 
-        <div id="content" class="mx-5">
+        <div id="loading" class="text-center mx-5">
+            <h4>Chargement des images en cours...</h4>
+            <div class="spinner-border" role="status">
+            </div>
+        </div>
+
+        <div id="content" class="mx-5 visually-hidden">
             <div class="lightbox justified-gallery">
                 <?php 
                     $legendes = array(
@@ -127,7 +133,7 @@
                         }
 
                         echo "<a class='a-tag-image'>
-                            <img alt=\"$description\" data-mdb-img='$file' src='thumbmails/" . $numfile . "_p.jpg'/>
+                            <img alt=\"$description\" data-mdb-img='$file' src='thumbnails/" . $numfile . "_p.jpg'/>
                         </a>";
                     }
                 ?>
@@ -142,6 +148,9 @@
                 lastRow: 'nojustify',
                 captions: false,
                 margins: 4,
+            }).on('jg.complete', function (e) {
+                $("#content").removeClass("visually-hidden");
+                $("#loading").addClass("visually-hidden");
             });
 
         </script>
