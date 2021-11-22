@@ -127,7 +127,7 @@
                         }
 
                         echo "<a class='a-tag-image'>
-                            <img alt=\"$description\" data-mdb-img='$file' src='$file'/>
+                            <img alt=\"$description\" data-mdb-img='$file' src='thumbmails/" . $numfile . "_p.jpg'/>
                         </a>";
                     }
                 ?>
@@ -137,8 +137,8 @@
         <script>
             $(".lightbox").justifiedGallery({
                 // images : photos,
-                rowHeight: 200,
-                maxRowHeight: 400,
+                rowHeight: 150,
+                maxRowHeight: 300,
                 lastRow: 'nojustify',
                 captions: false,
                 margins: 4,
