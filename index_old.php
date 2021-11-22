@@ -33,13 +33,7 @@
             <span class="link-text">269 photos</span>
         </div>
 
-        <div id="loading" class="text-center mx-5">
-            <h4>Chargement des images en cours...</h4>
-            <div class="spinner-border" role="status">
-            </div>
-        </div>
-
-        <div id="content" class="mx-5 visually-hidden">
+        <div id="content" class="mx-5">
             <div class="lightbox justified-gallery">
                 <?php 
                     $legendes = array(
@@ -141,6 +135,7 @@
         </div>
 
         <script>
+            
             $(".lightbox").justifiedGallery({
                 // images : photos,
                 rowHeight: 150,
@@ -148,9 +143,6 @@
                 lastRow: 'nojustify',
                 captions: false,
                 margins: 4,
-            }).on('jg.complete', function (e) {
-                $("#content").removeClass("visually-hidden");
-                $("#loading").addClass("visually-hidden");
             });
 
         </script>
