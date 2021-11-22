@@ -113,14 +113,21 @@
                     foreach($file_list as $numfile => $file) {
                         $description = "";
 
-
-                        
-                        foreach($legendes as $numlegende => $legende) {
-                            if(($numlegende == $numfile || $numlegende < $numfile) && )
+                        for ($i = 0; $i < count($numdisponibles); $i++) {
+                            if(!empty($numdisponibles[$i+1])) {
+                                if($numfile >= $numdisponibles[$i] && $numfile < $numdisponibles[$i+1]) {
+                                    $description = $legendes[$numdisponibles[$i]];
+                                    break;
+                                }
+                            }
+                            else {
+                                $description = $legendes[$numdisponibles[$i]];
+                                break;
+                            }
                         }
 
                         echo "<a class='a-tag-image'>
-                            <img alt='$description' data-mdb-img='$file' src='$file'/>
+                            <img alt=\"$description\" data-mdb-img='$file' src='$file'/>
                         </a>";
                     }
                 ?>
